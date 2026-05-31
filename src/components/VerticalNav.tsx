@@ -1,0 +1,100 @@
+import { Link, useLocation } from "react-router-dom";
+import { ShoppingBag } from "lucide-react";
+import { useState } from "react";
+
+const sections = [
+  { id: "manifesto", label: "Manifesto" },
+  { id: "do-chao", label: "Do Chão" },
+  { id: "em-breve", label: "Em Breve" },
+  { id: "jornal", label: "Jornal" },
+  { id: "irmandade", label: "Irmandade" },
+];
+
+export default function VerticalNav() {
+  const pathname = useLocation().pathname;
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const onHome = pathname === "/";  
+
+  return (
+    <>
+      {/* Desktop fixed left nav */}
+      <nav className="hidden lg:flex fixed left-0 top-0 h-screen w-24 xl:w-28 z-40 flex-col items-center justify-between py-10 border-r border-ash/40 bg-ink/80 backdrop-blur-sm">
+        <Link to="/" className="font-serif-editorial text-bone text-2xl leading-none tracking-tight">
+          AdC
+        </Link>
+
+        <ul className="flex flex-col items-center gap-8">
+          {sections.map((s) => (
+            <li key={s.id}>
+              {onHome ? (
+                <a
+                  href={`#${s.id}`}
+                  className="label-eyebrow editorial-link hover:text-bone"
+                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                >
+                  {s.label}
+                </a>
+              ) : (
+                <Link
+                  to={`/#${s.id}`}
+                  className="label-eyebrow editorial-link hover:text-bone"
+                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                >
+                  {s.label}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <button
+          aria-label="Sacola"
+          className="relative text-bone-dim hover:text-bone transition-colors duration-500"
+        >
+          <ShoppingBag className="h-4 w-4" strokeWidth={1.2} />
+        </button>
+      </nav>
+
+      {/* Mobile top bar */}
+      <nav className="lg:hidden fixed top-0 inset-x-0 z-40 flex items-center justify-between px-5 py-4 bg-ink/85 backdrop-blur-sm border-b border-ash/40">
+        <Link to="/" className="font-serif-editorial text-bone text-xl">
+          Arte de Chão
+        </Link>
+        <div className="flex items-center gap-5">
+          <button
+            aria-label="Sacola"
+            className="relative text-bone"
+          >
+            <ShoppingBag className="h-5 w-5" strokeWidth={1.2} />
+          </button>
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Menu"
+            className="label-eyebrow text-bone"
+          >
+            {mobileOpen ? "FECHAR" : "MENU"}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="lg:hidden fixed inset-0 z-30 bg-ink animate-fade pt-20 px-8">
+          <ul className="flex flex-col gap-7">
+            {sections.map((s) => (
+              <li key={s.id}>
+                <Link
+                  to={`/#${s.id}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="font-serif-editorial text-4xl text-bone"
+                >
+                  {s.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
+  );
+}
