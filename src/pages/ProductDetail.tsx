@@ -224,7 +224,7 @@ export default function ProductDetail() {
                 <Link to={`/produto/${r.slug}`} className="group block">
                   <div className="aspect-[3/4] overflow-hidden bg-secondary">
                     <img
-                      src={r.image}
+                      src={r.gallery[0]}
                       alt={r.name}
                       loading="lazy"
                       className="w-full h-full object-cover grayscale transition-transform duration-[1500ms] ease-out group-hover:scale-[1.04]"
