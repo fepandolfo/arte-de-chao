@@ -1,4 +1,4 @@
-import manifestoImg from "../../assets/manifesto.jpg";
+import manifestoImg from "../../assets/manifestov2.png";
 
 export default function Manifesto() {
   return (

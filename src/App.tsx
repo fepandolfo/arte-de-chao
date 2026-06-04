@@ -1,30 +1,26 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Index from "./pages/Index.tsx";
+import NotFound from "./pages/NotFound.tsx";
+import ProductDetail from "./pages/ProductDetail.tsx";
 import VerticalNav from "./components/VerticalNav";
-import Hero from "./components/sections/Hero";
-import Manifesto from "./components/sections/Manifesto";
-import DoChao from "./components/sections/DoChao";
-import EmBreve from "./components/sections/EmBreve";
-import Jornal from "./components/sections/Jornal";
-import Irmandade from "./components/sections/Irmandade";
-import Footer from "./components/sections/Footer";
 
-import { CartProvider } from "./context/CartContext";
+const queryClient = new QueryClient();
 
-function App() {
-  return (
-    <CartProvider>
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <div className="grain min-h-screen bg-ink">
       <VerticalNav />
 
-      <main className="lg:pl-24">
-        <Hero />
-        <Manifesto />
-        <DoChao />
-        <EmBreve />
-        <Jornal />
-        <Irmandade />
-        <Footer />
-      </main>
-    </CartProvider>
-  );
-}
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/produto/:slug" element={<ProductDetail />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+    </div>
+  </QueryClientProvider>
+);
 
 export default App;

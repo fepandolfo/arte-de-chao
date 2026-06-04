@@ -65,8 +65,8 @@
 
   h1, h2, h3, h4 {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    letter-spacing: -0.02em;
+    font-weight: 550;
+    letter-spacing: -0.04em;
   }
 }
 
@@ -75,7 +75,7 @@
   .font-mono-label { font-family: 'JetBrains Mono', monospace; }
 
   .label-eyebrow {
-    @apply font-mono-label uppercase text-[0.65rem] tracking-[0.3em] text-muted-foreground;
+    @apply font-mono-label uppercase text-[0.55rem] tracking-[0.3em] text-muted-foreground;
   }
 
   .grain::before {

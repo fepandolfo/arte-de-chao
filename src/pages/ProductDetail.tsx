@@ -1,7 +1,6 @@
 import { Link, useParams, Navigate } from "react-router-dom";
-import { products } from "../data/products";
-import { useState, useEffect } from "react";
-import { useCart } from "../context/CartContext";
+import { products } from "@/data/products";
+import { useEffect } from "react";
 
 const formatBRL = (n: number) =>
   n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 0 });
@@ -9,101 +8,247 @@ const formatBRL = (n: number) =>
 export default function ProductDetail() {
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
-  const [size, setSize] = useState<string | null>(null);
-  const { add } = useCart();
 
   useEffect(() => {
-    if (product) document.title = `${product.name} — Arte de Chão`;
+    if (product) {
+      document.title = `${product.name} — Arte de Chão`;
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
   }, [product]);
 
   if (!product) return <Navigate to="/" replace />;
 
-  const handleAdd = () => {
-    if (!size) return;
-    add(product.id, size);
-  };
+  const related = products.filter(
+    (p) => p.collection === product.collection && p.id !== product.id
+  );
 
   return (
-    <div className="lg:pl-24 xl:pl-28 pt-16 lg:pt-0 min-h-screen">
-      <div className="grid lg:grid-cols-2 min-h-screen">
-        {/* Image */}
-        <div className="relative bg-secondary aspect-square lg:aspect-auto lg:min-h-screen">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="absolute inset-0 w-full h-full object-cover grayscale"
-          />
-          <span className="absolute top-6 left-6 label-eyebrow">{product.collection}</span>
-        </div>
+    <div className="lg:pl-24 xl:pl-28 pt-16 lg:pt-0 min-h-screen bg-ink text-bone">
+      {/* SEÇÃO 01 — HERO */}
+      <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="absolute inset-0 w-full h-full object-cover grayscale"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/90" />
 
-        {/* Info */}
-        <div className="px-6 lg:px-16 py-16 lg:py-24 flex flex-col justify-center max-w-2xl">
-          <Link to="/#do-chao" className="label-eyebrow editorial-link mb-10 self-start">
-            ← Voltar para a Coleção
-          </Link>
-
-          <p className="label-eyebrow">N° {product.id.toUpperCase()}</p>
-          <h1 className="font-serif-editorial text-5xl md:text-6xl text-bone mt-3 leading-[0.95]">
-            {product.name}
-          </h1>
-          <p className="font-serif-editorial italic text-bone-dim text-xl mt-3">
-            {product.tagline}
-          </p>
-
-          <p className="font-mono-label text-bone text-sm mt-8 border-t border-ash pt-6">
-            {formatBRL(product.price)}
-          </p>
-
-          <p className="text-bone-dim leading-relaxed mt-8 max-w-md font-light">
-            {product.description}
-          </p>
-
-          {/* Size selector */}
-          <div className="mt-10">
-            <p className="label-eyebrow mb-4">Selecione o tamanho</p>
-            <div className="flex flex-wrap gap-2">
-              {product.sizes.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setSize(s)}
-                  className={[
-                    "px-5 py-3 border font-mono-label text-xs transition-all duration-300",
-                    size === s
-                      ? "border-bone bg-bone text-ink"
-                      : "border-ash text-bone-dim hover:border-bone hover:text-bone",
-                  ].join(" ")}
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
+        <div className="relative h-full flex flex-col justify-between px-6 lg:px-16 py-12 lg:py-16">
+          <div className="flex items-start justify-between gap-6">
+            <Link to="/#do-chao" className="label-eyebrow editorial-link text-bone">
+              ← Voltar
+            </Link>
+            <p className="label-eyebrow text-bone">Peça N° {product.number}</p>
           </div>
 
-          <button
-            onClick={handleAdd}
-            disabled={!size}
-            className="mt-10 py-5 bg-bone text-ink label-eyebrow hover:bg-bone-dim transition-colors duration-500 disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            {size ? "Adicionar à Sacola" : "Selecione um Tamanho"}
-          </button>
+          <div className="max-w-5xl">
+            <h1 className="font-serif-editorial text-bone leading-[0.88] text-[18vw] md:text-[12vw] lg:text-[9rem] tracking-[-0.04em]">
+              {product.name}
+            </h1>
+            <p className="font-serif-editorial italic text-bone-dim text-2xl md:text-3xl lg:text-4xl mt-6 leading-snug">
+              "{product.tagline}"
+            </p>
+            <p className="label-eyebrow text-bone-dim mt-8">
+              Coleção {product.number === "01" || product.collection === "DO CHÃO" ? "01" : ""} — {product.collection.charAt(0) + product.collection.slice(1).toLowerCase()}
+            </p>
+          </div>
 
-          {/* Details */}
-          <dl className="mt-16 grid sm:grid-cols-2 gap-8 border-t border-ash pt-10">
-            <div>
-              <dt className="label-eyebrow mb-2">Composição</dt>
-              <dd className="text-bone-dim text-sm leading-relaxed font-light">
-                {product.composition}
-              </dd>
-            </div>
-            <div>
-              <dt className="label-eyebrow mb-2">Origem</dt>
-              <dd className="text-bone-dim text-sm leading-relaxed font-light">
-                {product.origin}
-              </dd>
-            </div>
-          </dl>
+          <div className="flex items-end justify-between">
+            <p className="label-eyebrow text-bone-dim">Role para ler o capítulo</p>
+            <span className="label-eyebrow text-bone-dim">↓</span>
+          </div>
         </div>
+      </section>
+
+      {/* SEÇÃO 02 — O CAPÍTULO */}
+      <section className="border-t border-ash/40 px-6 lg:px-16 py-32 lg:py-48">
+        <div className="max-w-4xl mx-auto grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-3">
+            <p className="label-eyebrow">O Capítulo</p>
+            <p className="font-mono-label text-bone-dim text-xs mt-3">N° {product.number}</p>
+          </div>
+          <div className="lg:col-span-9">
+            <p className="font-serif-editorial text-bone text-2xl md:text-3xl lg:text-[2rem] leading-[1.35] font-light">
+              {product.editorialText}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 03 — GALERIA EDITORIAL */}
+      {/* SEÇÃO 03 — GALERIA EDITORIAL */}
+<section className="border-t border-ash/40">
+  <div className="px-6 lg:px-16 pt-24 lg:pt-32 pb-16">
+    <div className="max-w-7xl mx-auto">
+      <p className="label-eyebrow">Reportagem Visual</p>
+    </div>
+  </div>
+
+  <div className="space-y-24 lg:space-y-40 pb-24 lg:pb-40">
+
+    {/* FOTO 01 */}
+    <figure className="px-6 lg:px-16">
+      <div className="max-w-6xl mx-auto">
+        <img
+          src={product.gallery[0]}
+          alt={`${product.name} — imagem 01`}
+          loading="lazy"
+          className="w-full h-auto grayscale"
+        />
+        <figcaption className="label-eyebrow text-bone-dim mt-4">
+          01 · {product.name}
+        </figcaption>
       </div>
+    </figure>
+
+    {/* FOTO 02 */}
+    <figure className="px-6 lg:px-16">
+      <div className="max-w-4xl mx-auto">
+        <img
+          src={product.gallery[1]}
+          alt={`${product.name} — imagem 02`}
+          loading="lazy"
+          className="w-full h-auto grayscale"
+        />
+        <figcaption className="label-eyebrow text-bone-dim mt-4">
+          02 · {product.name}
+        </figcaption>
+      </div>
+    </figure>
+
+    {/* FOTO 03 */}
+    <figure className="px-6 lg:px-16">
+      <div className="max-w-5xl mx-auto">
+        <img
+          src={product.gallery[2]}
+          alt={`${product.name} — imagem 03`}
+          loading="lazy"
+          className="w-full h-auto grayscale"
+        />
+        <figcaption className="label-eyebrow text-bone-dim mt-4">
+          03 · {product.name}
+        </figcaption>
+      </div>
+    </figure>
+
+  </div>
+</section>
+
+      {/* SEÇÃO 04 — A PEÇA */}
+      <section className="border-t border-ash/40 px-6 lg:px-16 py-32 lg:py-48">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="aspect-[4/5] overflow-hidden bg-secondary">
+            <img
+              src={product.featureImage}
+              alt={product.name}
+              className="w-full h-full object-cover grayscale"
+            />
+          </div>
+
+          <div>
+            <p className="label-eyebrow">A Peça</p>
+            <h2 className="font-serif-editorial text-bone text-5xl md:text-6xl mt-4 leading-[0.95] tracking-[-0.02em]">
+              {product.name}
+            </h2>
+
+            <dl className="mt-12 space-y-5 border-t border-ash/60 pt-8">
+              {[
+                ["Coleção", `${product.collection}`],
+                ["Modelagem", "Oversized"],
+                ["Tecido", "100% algodão orgânico"],
+                ["Produção", "Sob demanda"],
+                ["Origem", product.origin],
+              ].map(([k, v]) => (
+                <div
+                  key={k}
+                  className="grid grid-cols-12 gap-4 pb-5 border-b border-ash/40"
+                >
+                  <dt className="col-span-4 label-eyebrow">{k}</dt>
+                  <dd className="col-span-8 text-bone-dim font-light text-sm md:text-base leading-relaxed">
+                    {v}
+                  </dd>
+                </div>
+              ))}
+              <div className="grid grid-cols-12 gap-4 pt-4">
+                <dt className="col-span-4 label-eyebrow">Preço</dt>
+                <dd className="col-span-8 font-serif-editorial text-bone text-3xl">
+                  {formatBRL(product.price)}
+                </dd>
+              </div>
+            </dl>
+
+            <a
+              href={product.reservaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-12 inline-flex w-full items-center justify-between gap-4 py-5 px-6 bg-bone text-ink label-eyebrow hover:bg-bone-dim transition-colors duration-500"
+            >
+              <span>Continuar para Compra</span>
+              <span>→</span>
+            </a>
+            <p className="label-eyebrow text-bone-dim mt-4">
+              Venda realizada na Reserva.ink
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 05 — LIÇÃO */}
+      <section className="border-t border-ash/40 px-6 lg:px-16 py-40 lg:py-64">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="label-eyebrow mb-12">A Lição</p>
+          <p className="font-serif-editorial italic text-bone text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-[-0.01em]">
+            "{product.finalQuote}"
+          </p>
+        </div>
+      </section>
+
+      {/* SEÇÃO 06 — CONTINUAR A JORNADA */}
+      <section className="border-t border-ash/40 px-6 lg:px-16 py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-16">
+            <div>
+              <p className="label-eyebrow mb-4">Continuar a Jornada</p>
+              <h3 className="font-serif-editorial text-bone text-4xl md:text-5xl leading-[0.95]">
+                Outras peças da coleção
+              </h3>
+            </div>
+            <Link to="/#do-chao" className="label-eyebrow editorial-link hidden md:inline">
+              Ver coleção →
+            </Link>
+          </div>
+
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+            {related.map((r) => (
+              <li key={r.id}>
+                <Link to={`/produto/${r.slug}`} className="group block">
+                  <div className="aspect-[3/4] overflow-hidden bg-secondary">
+                    <img
+                      src={r.image}
+                      alt={r.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover grayscale transition-transform duration-[1500ms] ease-out group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <p className="label-eyebrow text-bone-dim mt-4">N° {r.number}</p>
+                  <p className="font-serif-editorial text-bone text-xl md:text-2xl mt-1">
+                    {r.name}
+                  </p>
+                  <p className="font-serif-editorial italic text-bone-dim text-sm mt-1">
+                    "{r.tagline}"
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <footer className="border-t border-ash/40 px-6 lg:px-16 py-12 text-center">
+        <Link to="/" className="label-eyebrow editorial-link">
+          ← Retornar ao Início
+        </Link>
+      </footer>
     </div>
   );
 }

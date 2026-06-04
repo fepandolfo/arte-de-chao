@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { products } from "../../data/products";
+import { products } from "@/data/products";
 
 const formatBRL = (n: number) =>
   n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 0 });
@@ -8,61 +8,117 @@ export default function DoChao() {
   const items = products.filter((p) => p.collection === "DO CHÃO");
 
   return (
-    <section id="do-chao" className="relative py-32 lg:py-48 px-6 lg:px-16 border-t border-ash/40">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 lg:mb-28">
-          <div className="space-y-6">
-            <p className="label-eyebrow">02 — Coleção Inaugural</p>
-            <h2 className="font-serif-editorial text-5xl md:text-7xl lg:text-8xl text-bone leading-[0.95]">
-              Do Chão.
-            </h2>
-            <p className="max-w-md text-bone-dim leading-relaxed">
-              Três peças. Uma única ideia: a base. Tudo começa aqui.
+    <section id="do-chao" className="relative border-t border-ash/40">
+      {/* Editorial header */}
+      <header className="px-6 lg:px-16 pt-32 lg:pt-48 pb-24 lg:pb-40 max-w-6xl mx-auto">
+        <p className="label-eyebrow mb-10">Coleção 01 — Capítulo Inaugural</p>
+        <h2 className="font-serif-editorial text-bone leading-[0.9] text-[18vw] md:text-[14vw] lg:text-[11rem] tracking-[-0.04em]">
+          Do Chão.
+        </h2>
+        <div className="mt-16 lg:mt-20 grid lg:grid-cols-12 gap-x-12 gap-y-10">
+          <p className="lg:col-span-7 lg:col-start-1 font-serif-editorial italic text-bone text-3xl md:text-4xl lg:text-5xl leading-[1.15]">
+            "O corpo que aprende no chão não esquece mais."
+          </p>
+          <div className="lg:col-span-4 lg:col-start-9 space-y-5 text-bone-dim font-light leading-relaxed text-sm md:text-base">
+            <p>
+              Cinco peças. Cinco lições que o tatame entrega antes de qualquer faixa.
+              Pressão, ego, raspagem, submissão, respiração — os fundamentos que o
+              corpo aprende deitado.
             </p>
+            <p>
+              Não é uma coleção sobre vestir. É sobre lembrar. Cada camiseta
+              carrega uma palavra que o praticante já ouviu por dentro, no escuro
+              da academia vazia.
+            </p>
+            <p className="label-eyebrow pt-4">Edição Limitada · 2026</p>
           </div>
-          <p className="label-eyebrow">Disponível · Edição Limitada</p>
         </div>
+      </header>
 
-        <div className="grid lg:grid-cols-12 gap-x-8 gap-y-24">
-          {items.map((p, idx) => (
-            <Link
+      {/* Editorial product chapters */}
+      <div className="border-t border-ash/40">
+        {items.map((p, idx) => {
+          const number = String(idx + 1).padStart(2, "0");
+          const isEven = idx % 2 === 0;
+          return (
+            <article
               key={p.id}
-              to={`/produto/${p.slug}`}
-              className={[
-                "group block",
-                idx === 0 && "lg:col-span-7",
-                idx === 1 && "lg:col-span-5 lg:mt-32",
-                idx === 2 && "lg:col-span-8 lg:col-start-4",
-              ].filter(Boolean).join(" ")}
+              className="border-b border-ash/40 py-24 lg:py-40 px-6 lg:px-16"
             >
-              <div className="relative overflow-hidden aspect-[3/4] bg-secondary mb-6">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover grayscale transition-transform duration-[1500ms] ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20 transition-colors duration-700" />
-                <span className="absolute top-5 left-5 label-eyebrow text-bone">
-                  N° 0{idx + 1}
-                </span>
-              </div>
-              <div className="flex justify-between items-baseline gap-4">
-                <div>
-                  <h3 className="font-serif-editorial text-3xl md:text-4xl text-bone">
+              <div
+                className={[
+                  "max-w-7xl mx-auto grid lg:grid-cols-12 gap-y-12 gap-x-12 items-center",
+                  isEven ? "" : "lg:[&>*:first-child]:order-2",
+                ].join(" ")}
+              >
+                {/* Image */}
+                <Link
+                  to={`/produto/${p.slug}`}
+                  className={[
+                    "group block relative overflow-hidden bg-secondary",
+                    isEven
+                      ? "lg:col-span-7 lg:col-start-1"
+                      : "lg:col-span-7 lg:col-start-6",
+                  ].join(" ")}
+                >
+                  <div className="aspect-[4/5] overflow-hidden">
+                    <img
+                      src={[1, 2].includes(idx) ? p.gallery[0] : p.image}
+                      alt={p.name}
+                      loading="lazy"
+                      width={1280}
+                      height={1600}
+                      className="w-full h-full object-cover grayscale transition-transform duration-[2000ms] ease-out group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <span className="absolute top-6 left-6 label-eyebrow text-bone">
+                    Peça N° {number}
+                  </span>
+                </Link>
+
+                {/* Text */}
+                <div
+                  className={[
+                    "space-y-8",
+                    isEven
+                      ? "lg:col-span-4 lg:col-start-9"
+                      : "lg:col-span-4 lg:col-start-1",
+                  ].join(" ")}
+                >
+                  <p className="label-eyebrow">Capítulo {number}</p>
+                  <h3 className="font-serif-editorial text-bone text-6xl md:text-7xl lg:text-7xl leading-[0.95] tracking-[-0.02em] uppercase">
                     {p.name}
                   </h3>
-                  <p className="text-bone-dim italic mt-1 font-serif-editorial">
-                    {p.tagline}
+                  <p className="font-serif-editorial italic text-bone-dim text-2xl md:text-3xl leading-snug">
+                    "{p.tagline}"
                   </p>
+                  <p className="text-bone-dim font-light leading-relaxed max-w-md text-sm md:text-base">
+                    {p.description}
+                  </p>
+                  <div className="flex items-baseline justify-between pt-6 border-t border-ash/60 max-w-md">
+                    <p className="font-mono-label text-bone text-xs">
+                      {formatBRL(p.price)}
+                    </p>
+                    <Link
+                      to={`/produto/${p.slug}`}
+                      className="editorial-link label-eyebrow text-bone"
+                    >
+                      Ver peça →
+                    </Link>
+                  </div>
                 </div>
-                <p className="font-mono-label text-sm text-bone whitespace-nowrap">
-                  {formatBRL(p.price)}
-                </p>
               </div>
-            </Link>
-          ))}
-        </div>
+            </article>
+          );
+        })}
+      </div>
+
+      {/* Closing editorial mark */}
+      <div className="px-6 lg:px-16 py-32 lg:py-48 text-center max-w-3xl mx-auto">
+        <p className="label-eyebrow mb-8">Fim do Capítulo 01</p>
+        <p className="font-serif-editorial italic text-bone text-3xl md:text-4xl leading-[1.2]">
+          O chão ensina. O praticante escuta. O resto é repetição.
+        </p>
       </div>
     </section>
   );

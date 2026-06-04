@@ -1,66 +1,143 @@
-const tee = "/hero.png";
-const hoodie = "/hero.png";
-const gi = "/hero.png";
+import heropressao from "@/assets/heropressao.png";
+import pressao from "@/assets/pressao1.png";
+import pressao2 from "@/assets/pressao2.png";
+import pressao3 from "@/assets/pressao3.png";
+import chokeHero from "@/assets/herochoketheego.png";
+import choke from "@/assets/choketheego1.png";
+import choke2 from "@/assets/choketheego2.png";
+import choke3 from "@/assets/choketheego3.png";
+import raspagemHero from "@/assets/heroraspagem.png";
+import raspagem from "@/assets/raspagem1.png";
+import raspagem2 from "@/assets/raspagem2.png";
+import raspagem3 from "@/assets/raspagem3.png";
+import herosubmit from "@/assets/herosubmit.png";
+import submit from "@/assets/submit1.png";
+import submit2 from "@/assets/submit2.png";
+import submit3 from "@/assets/submit3.png";
+import respire from "@/assets/respire1.png";
+import manifesto from "@/assets/manifesto-adc.png";
+import academy from "@/assets/herov2.png";
 
 export type Product = {
   id: string;
   slug: string;
   name: string;
+  number: string;
   collection: "DO CHÃO" | "FORJA" | "LEGADO";
   price: number; // BRL
   image: string;
+  featureImage: string;
+  gallery: string[];
   tagline: string;
   description: string;
+  editorialText: string;
+  finalQuote: string;
   composition: string;
   origin: string;
-  sizes: string[];
+  reservaUrl: string;
   available: boolean;
 };
 
 export const products: Product[] = [
   {
     id: "dc-01",
-    slug: "camiseta-fundamento",
-    name: "Camiseta Fundamento",
+    slug: "pressao",
+    name: "PRESSÃO",
+    number: "01",
     collection: "DO CHÃO",
-    price: 289,
-    image: tee,
-    tagline: "Onde tudo começa.",
+    price: 129,
+    image: heropressao,
+    featureImage: pressao,
+    gallery: [pressao, pressao2, pressao3],
+    tagline: "Revela o caráter.",
     description:
-      "Algodão pesado, corte reto, costuras reforçadas. Uma peça que carrega o silêncio do tatame antes do primeiro treino. Feita para durar mais que a primeira faixa.",
+      "Modelagem oversized. 100% algodão. Produção sob demanda.",
+    editorialText:
+      "Pressão não machuca. Pressão revela. Embaixo do peso do outro, o praticante descobre o que sobra de si quando o ar fica curto e o orgulho não cabe mais. A primeira peça da coleção é sobre o instante anterior à reação — o segundo em que se decide se vai bater, se vai virar, ou se vai aprender. Toda lição séria começa assim: comprimido contra o chão, sem espaço para mentir.",
+    finalQuote: "Embaixo do peso, sobra apenas o que é verdadeiro.",
     composition: "100% algodão orgânico 240g/m². Tingimento reativo preto profundo.",
-    origin: "Confeccionada em São Paulo. Tecida no Ceará.",
-    sizes: ["P", "M", "G", "GG"],
+    origin: "Confeccionada no Rio de Janeiro. RESERVA",
+    reservaUrl: "https://www.reserva.ink/",
     available: true,
   },
   {
     id: "dc-02",
-    slug: "moletom-chao",
-    name: "Moletom Chão",
+    slug: "choke-the-ego",
+    name: "CHOKE THE EGO",
+    number: "02",
     collection: "DO CHÃO",
-    price: 749,
-    image: hoodie,
-    tagline: "O peso de quem persiste.",
-    description:
-      "Oversize, felpa interna densa, capuz forrado. Inspirado nas horas frias antes do treino — quando ainda existe só o chão e a próxima respiração.",
-    composition: "92% algodão · 8% poliéster reciclado · 460g/m².",
-    origin: "Confeccionada em São Paulo.",
-    sizes: ["P", "M", "G", "GG"],
+    price: 129,
+    image: chokeHero,
+    featureImage: choke,
+    gallery: [choke, choke2, choke3],
+    tagline: "A finalização mais difícil.",
+    description: "Modelagem oversized. 100% algodão. Produção sob demanda.",
+    editorialText:
+      "Existe uma luta que nenhum professor finaliza por você. É silenciosa, acontece no caminho de casa, no espelho, no momento em que se escolhe voltar para o tatame mesmo sabendo que vai perder de novo. Choke the Ego não é sobre humilhação — é sobre o ofício diário de apertar, com as próprias mãos, o adversário interno que quer parecer maior do que é.",
+    finalQuote: "O adversário mais difícil não está na sua frente.",
+    composition: "100% algodão orgânico 240g/m². Tingimento reativo preto profundo.",
+    origin: "Confeccionada no Rio de Janeiro. RESERVA.",
+    reservaUrl: "https://www.reserva.ink/",
     available: true,
   },
   {
     id: "dc-03",
-    slug: "kimono-origem",
-    name: "Kimono Origem",
+    slug: "raspagem",
+    name: "RASPAGEM",
+    number: "03",
     collection: "DO CHÃO",
-    price: 1490,
-    image: gi,
-    tagline: "A peça que define o praticante.",
-    description:
-      "Trançado pearl weave 550gsm. Calça ripstop. Sem estampas externas — apenas a etiqueta interna que carrega o nome de quem a vestiu primeiro.",
-    composition: "Pearl weave 100% algodão · 550gsm. Calça ripstop 10oz.",
-    origin: "Tecido e confeccionado no Brasil.",
-    sizes: ["A1", "A2", "A3", "A4"],
+    price: 129,
+    image: raspagemHero,
+    featureImage: raspagem,
+    gallery: [raspagem, raspagem2, raspagem3],
+    tagline: "Vire o jogo. Sempre.",
+    description: "Modelagem oversized. 100% algodão. Produção sob demanda.",
+    editorialText:
+      "Estar embaixo é apenas geografia, não destino. A raspagem é a tradução técnica de uma crença mais antiga: nenhuma posição é definitiva. Quem aprende a virar no tatame leva o gesto para fora — para a semana ruim, para o ano difícil, para a derrota que parecia final. Aprende-se, no chão, a transformar peso em alavanca.",
+    finalQuote: "Estar embaixo é apenas a posição anterior à virada.",
+    composition: "100% algodão orgânico 240g/m².",
+    origin: "Confeccionada no Rio de Janeiro. RESERVA.",
+    reservaUrl: "https://www.reserva.ink/",
+    available: true,
+  },
+  {
+    id: "dc-04",
+    slug: "submit",
+    name: "SUBMIT",
+    number: "04",
+    collection: "DO CHÃO",
+    price: 129,
+    image: herosubmit,
+    featureImage: submit,
+    gallery: [submit, submit2, submit3],
+    tagline: "Aprenda a ceder.",
+    description: "Modelagem oversized. 100% algodão. Produção sob demanda.",
+    editorialText:
+      "Bater na palma é o gesto mais maduro do esporte. É reconhecer o limite sem rancor, salvar o corpo para o próximo treino, devolver a honestidade que a luta exige. Quem nunca aprendeu a ceder não treina há muito tempo — treina sozinho. A coleção encontra aqui o seu centro: não há técnica sem rendição, nem evolução sem perda.",
+    finalQuote: "Bater é parte do ofício. Voltar amanhã também.",
+    composition: "100% algodão orgânico 240g/m².",
+    origin: "Confeccionada no Rio de Janeiro. RESERVA.",
+    reservaUrl: "https://www.reserva.ink/",
+    available: true,
+  },
+  {
+    id: "dc-05",
+    slug: "respire",
+    name: "RESPIRE",
+    number: "05",
+    collection: "DO CHÃO",
+    price: 129,
+    image: respire,
+    featureImage: respire,
+    gallery: [respire, manifesto, academy, submit, respire],
+    tagline: "Calma sob pressão.",
+    description: "Modelagem oversized. 100% algodão. Produção sob demanda.",
+    editorialText:
+      "O praticante avançado é, antes de tudo, alguém que respira. Quando o ar entra com calma, a técnica volta, o tempo se alarga, e o pânico — que é o verdadeiro adversário — perde o jab. Respire encerra a coleção como lembrete físico: a primeira ferramenta nunca foi a força. Sempre foi o ar.",
+    finalQuote: "A técnica começa no ar que entra antes do movimento.",
+    composition: "100% algodão orgânico 240g/m².",
+    origin: "Confeccionada no Rio de Janeiro. RESERVA.",
+    reservaUrl: "https://www.reserva.ink/",
     available: true,
   },
 ];

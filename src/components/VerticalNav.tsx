@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
 const sections = [
@@ -11,9 +10,9 @@ const sections = [
 ];
 
 export default function VerticalNav() {
-  const pathname = useLocation().pathname;
+  const { pathname } = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const onHome = pathname === "/";  
+  const onHome = pathname === "/";
 
   return (
     <>
@@ -47,12 +46,12 @@ export default function VerticalNav() {
           ))}
         </ul>
 
-        <button
-          aria-label="Sacola"
-          className="relative text-bone-dim hover:text-bone transition-colors duration-500"
+        <span
+          className="label-eyebrow text-bone-dim"
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
         >
-          <ShoppingBag className="h-4 w-4" strokeWidth={1.2} />
-        </button>
+          MMXXVI
+        </span>
       </nav>
 
       {/* Mobile top bar */}
@@ -60,21 +59,13 @@ export default function VerticalNav() {
         <Link to="/" className="font-serif-editorial text-bone text-xl">
           Arte de Chão
         </Link>
-        <div className="flex items-center gap-5">
-          <button
-            aria-label="Sacola"
-            className="relative text-bone"
-          >
-            <ShoppingBag className="h-5 w-5" strokeWidth={1.2} />
-          </button>
-          <button
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Menu"
-            className="label-eyebrow text-bone"
-          >
-            {mobileOpen ? "FECHAR" : "MENU"}
-          </button>
-        </div>
+        <button
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label="Menu"
+          className="label-eyebrow text-bone"
+        >
+          {mobileOpen ? "FECHAR" : "MENU"}
+        </button>
       </nav>
 
       {/* Mobile menu */}

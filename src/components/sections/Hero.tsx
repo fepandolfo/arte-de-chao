@@ -1,4 +1,4 @@
-import hero from "../../assets/hero-academy.jpg";
+import hero from "../../assets/herov2.png";
 
 export default function Hero() {
   return (
@@ -14,15 +14,15 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink" />
       </div>
 
-      <div className="relative z-10 min-h-screen flex flex-col justify-between px-6 lg:px-16 py-24 lg:py-20">
+      <div className="relative z-10 min-h-screen flex flex-col justify-between px-6 lg:px-20 py-24 lg:py-20">
         <div className="flex justify-between items-start animate-fade">
           <p className="label-eyebrow">MMXXVI · São Paulo · Brasil</p>
           <p className="label-eyebrow hidden md:block">Coleção 01 — Do Chão</p>
         </div>
 
-        <div className="max-w-4xl">
-          <p className="label-eyebrow mb-6 animate-rise">Arte de Chão</p>
-          <h1 className="font-serif-editorial text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.92] text-bone animate-rise delay-100">
+        <div className="max-5xl">
+          <p className="label-eyebrow mb-4 animate-rise">Arte de Chão</p>
+          <h1 className="font-serif-editorial text-6xl sm:text-6xl md:text-6xl lg:text-[9.5rem] leading-[0.95] text-bone animate-rise delay-100">
             Antes da<br />
             <span className="italic font-light">faixa,</span><br />
             existe o <span className="italic">chão.</span>
