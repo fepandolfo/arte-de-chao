@@ -15,7 +15,6 @@ import submit from "@/assets/submit1.png";
 import submit2 from "@/assets/submit2.png";
 import submit3 from "@/assets/submit3.png";
 import respirehero from "@/assets/respirehero.png";
-import respirehero1 from "@/assets/respirehero.png";
 import respire from "@/assets/respire1.png";
 import respire1 from "@/assets/respire2.png";
 import respire2 from "@/assets/respire3.png";
@@ -129,7 +128,7 @@ export const products: Product[] = [
     number: "05",
     collection: "DO CHÃO",
     price: 129,
-    image: respire,
+    image: respirehero,
     featureImage: respire,
     gallery: [respire, respire1, respire2],
     tagline: "Calma sob pressão.",

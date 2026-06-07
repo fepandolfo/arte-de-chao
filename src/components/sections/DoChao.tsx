@@ -63,7 +63,7 @@ export default function DoChao() {
                 >
                   <div className="aspect-[4/5] overflow-hidden">
                     <img
-                      src={[1, 2].includes(idx) ? p.gallery[0] : p.image}
+                      src={p.featureImage}
                       alt={p.name}
                       loading="lazy"
                       width={1280}
