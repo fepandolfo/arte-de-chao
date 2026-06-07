@@ -1,16 +1,44 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "../../lib/supabase";
 
 export default function Irmandade() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) return toast.error("E-mail inválido.");
-    setDone(true);
-    toast.success("Bem-vindo à Irmandade.");
-  };
+  const submit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!email.includes("@")) {
+    return toast.error("E-mail inválido.");
+  }
+
+  const { error } = await supabase
+    .from("newsletter_subscribers")
+    .insert([{ email }]);
+
+  if (error) {
+    console.error(error);
+
+    if (
+      error.message.includes("duplicate") ||
+      error.message.includes("unique")
+    ) {
+      return toast.error(
+        "Este e-mail já faz parte da Irmandade."
+      );
+    }
+
+    return toast.error(
+      "Não foi possível concluir o cadastro."
+    );
+  }
+
+  setDone(true);
+  setEmail("");
+
+  toast.success("Bem-vindo à Irmandade.");
+};
 
   return (
     <section id="irmandade" className="relative py-32 lg:py-56 px-6 lg:px-16 border-t border-ash/40 overflow-hidden">
