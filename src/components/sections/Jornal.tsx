@@ -45,13 +45,12 @@ export default function Jornal() {
               <h3 className="font-serif-editorial text-2xl md:text-3xl text-bone leading-tight group-hover:italic transition-all duration-500">
                 {j.title}
               </h3>
-              <p className="mt-3 text-bone-dim leading-relaxed text-sm">{j.excerpt}</p>
-              <Link to={`/jornal/${j.slug}`} >
+              <p className="mt-3 text-bone-dim leading-relaxed text-sm">
+                {j.excerpt}</p>
                 <span className="inline-block mt-5 label-eyebrow editorial-link">
                   Ler →
                 </span>
               </Link>
-            </Link>
           ))}
         </div>
       </div>
