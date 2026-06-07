@@ -28,13 +28,18 @@ export default function Irmandade() {
         </h2>
 
         <p className="font-serif-editorial italic text-xl md:text-2xl text-bone-dim max-w-xl mx-auto leading-relaxed">
-          Cartas ocasionais sobre disciplina, cultura e os bastidores das próximas
-          coleções. Sem ruído. Apenas o que importa.
+          Nem todo mundo faz parte da Irmandade.
+          <br />
+          Receba editoriais, bastidores e lançamentos antes de todos os outros.
         </p>
 
         {done ? (
           <p className="font-serif-editorial italic text-bone text-2xl pt-6">
-            O tatame te espera.
+            Bem-vindo à Irmandade.
+            <br />
+            <span className="text-bone-dim text-lg">
+              Você será avisado sobre novos editoriais e futuras coleções.
+            </span>
           </p>
         ) : (
           <form

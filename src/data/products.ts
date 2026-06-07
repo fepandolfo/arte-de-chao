@@ -14,9 +14,11 @@ import herosubmit from "@/assets/herosubmit.png";
 import submit from "@/assets/submit1.png";
 import submit2 from "@/assets/submit2.png";
 import submit3 from "@/assets/submit3.png";
+import respirehero from "@/assets/respirehero.png";
+import respirehero1 from "@/assets/respirehero.png";
 import respire from "@/assets/respire1.png";
-import manifesto from "@/assets/manifesto-adc.png";
-import academy from "@/assets/herov2.png";
+import respire1 from "@/assets/respire2.png";
+import respire2 from "@/assets/respire3.png";
 
 export type Product = {
   id: string;
@@ -129,7 +131,7 @@ export const products: Product[] = [
     price: 129,
     image: respire,
     featureImage: respire,
-    gallery: [respire, manifesto, academy, submit, respire],
+    gallery: [respire, respire1, respire2],
     tagline: "Calma sob pressão.",
     description: "Modelagem oversized. 100% algodão. Produção sob demanda.",
     editorialText:
@@ -168,16 +170,16 @@ export const journalEntries = [
     slug: "irmandade-do-tatame",
     title: "A irmandade do tatame",
     excerpt:
-      "Quem te quebra também te ensina a levantar. Notas sobre o vínculo silencioso entre treinos.",
-    date: "28 · FEV · 2026",
-    readTime: "8 min",
+      "Nem todo irmão compartilha o mesmo sangue. Alguns compartilham o mesmo chão.",
+    date: "19 · MAR · 2026",
+    readTime: "7 min",
   },
   {
     slug: "disciplina-como-oficio",
     title: "Disciplina como ofício",
     excerpt:
-      "Não é sobre força. É sobre voltar — todos os dias — para o mesmo chão, com a mesma humildade.",
-    date: "14 · FEV · 2026",
-    readTime: "5 min",
+      "Não é sobre força de vontade. É sobre continuar quando ela desaparece.",
+    date: "26 · MAR · 2026",
+    readTime: "8 min",
   },
 ];

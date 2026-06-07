@@ -1,7 +1,8 @@
 import { journalEntries } from "../../data/products";
-import j1 from "../../assets/journal-1.jpg";
-import j2 from "../../assets/journal-2.jpg";
-import j3 from "../../assets/journal-3.jpg";
+import j1 from "../../assets/vitrinefaixa.png";
+import j2 from "../../assets/vitrineirmandade.png";
+import j3 from "../../assets/vitrinedisciplina.png";
+import { Link } from "react-router-dom";
 
 const images = [j1, j2, j3];
 
@@ -21,9 +22,13 @@ export default function Jornal() {
           </a>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-14">
           {journalEntries.map((j, i) => (
-            <article key={j.slug} className="group cursor-pointer">
+            <Link
+              to={`/jornal/${j.slug}`}
+              key={j.slug}
+              className="group block cursor-pointer"
+            >
               <div className="aspect-[4/5] overflow-hidden mb-6">
                 <img
                   src={images[i]}
@@ -41,8 +46,12 @@ export default function Jornal() {
                 {j.title}
               </h3>
               <p className="mt-3 text-bone-dim leading-relaxed text-sm">{j.excerpt}</p>
-              <span className="inline-block mt-5 label-eyebrow editorial-link">Ler →</span>
-            </article>
+              <Link to={`/jornal/${j.slug}`} >
+                <span className="inline-block mt-5 label-eyebrow editorial-link">
+                  Ler →
+                </span>
+              </Link>
+            </Link>
           ))}
         </div>
       </div>

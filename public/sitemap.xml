@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://artedechao.com.br/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://artedechao.com.br/jornal/antes-da-faixa-existe-o-chao</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://artedechao.com.br/jornal/a-irmandade-do-tatame</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://artedechao.com.br/jornal/disciplina-como-oficio</loc>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

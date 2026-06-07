@@ -18,7 +18,11 @@ export default function VerticalNav() {
     <>
       {/* Desktop fixed left nav */}
       <nav className="hidden lg:flex fixed left-0 top-0 h-screen w-24 xl:w-28 z-40 flex-col items-center justify-between py-10 border-r border-ash/40 bg-ink/80 backdrop-blur-sm">
-        <Link to="/" className="font-serif-editorial text-bone text-2xl leading-none tracking-tight">
+        <Link 
+          to="/" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="font-serif-editorial text-bone text-2xl leading-none tracking-tight"
+        >
           AdC
         </Link>
 
@@ -56,7 +60,11 @@ export default function VerticalNav() {
 
       {/* Mobile top bar */}
       <nav className="lg:hidden fixed top-0 inset-x-0 z-40 flex items-center justify-between px-5 py-4 bg-ink/85 backdrop-blur-sm border-b border-ash/40">
-        <Link to="/" className="font-serif-editorial text-bone text-xl">
+        <Link 
+          to="/" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="font-serif-editorial text-bone text-xl"
+        >
           Arte de Chão
         </Link>
         <button

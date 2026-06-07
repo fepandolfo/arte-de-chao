@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artedechao.com.br/sitemap.xml
