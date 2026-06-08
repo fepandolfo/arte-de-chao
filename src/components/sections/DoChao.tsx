@@ -8,9 +8,9 @@ export default function DoChao() {
   const items = products.filter((p) => p.collection === "DO CHÃO");
 
   return (
-    <section id="do-chao" className="relative border-t border-ash/40">
+    <section className="relative border-t border-ash/40">
       {/* Editorial header */}
-      <header className="px-6 lg:px-16 pt-32 lg:pt-48 pb-24 lg:pb-40 max-w-6xl mx-auto">
+      <header id="do-chao" className="scroll-mt-4 px-6 lg:px-16 pt-32 lg:pt-48 pb-24 lg:pb-40 max-w-6xl mx-auto">
         <p className="label-eyebrow mb-10">Coleção 01 — Capítulo Inaugural</p>
         <h2 className="font-serif-editorial text-bone leading-[0.9] text-[18vw] md:text-[14vw] lg:text-[11rem] tracking-[-0.04em]">
           Do Chão.
