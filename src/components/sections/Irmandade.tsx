@@ -7,7 +7,7 @@ export default function Irmandade() {
   const [done, setDone] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  e.preventDefault()
 
   if (!email.includes("@")) {
     return toast.error("E-mail inválido.");

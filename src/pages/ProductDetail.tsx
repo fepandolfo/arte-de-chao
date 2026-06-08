@@ -77,62 +77,62 @@ export default function ProductDetail() {
 
       {/* SEÇÃO 03 — GALERIA EDITORIAL */}
       {/* SEÇÃO 03 — GALERIA EDITORIAL */}
-<section className="border-t border-ash/40">
-  <div className="px-6 lg:px-16 pt-24 lg:pt-32 pb-16">
-    <div className="max-w-7xl mx-auto">
-      <p className="label-eyebrow">Reportagem Visual</p>
-    </div>
-  </div>
+      <section className="border-t border-ash/40">
+        <div className="px-6 lg:px-16 pt-24 lg:pt-32 pb-16">
+          <div className="max-w-7xl mx-auto">
+            <p className="label-eyebrow">Reportagem Visual</p>
+          </div>
+        </div>
 
-  <div className="space-y-24 lg:space-y-40 pb-24 lg:pb-40">
+        <div className="space-y-24 lg:space-y-40 pb-24 lg:pb-40">
 
-    {/* FOTO 01 */}
-    <figure className="px-6 lg:px-16">
-      <div className="max-w-6xl mx-auto">
-        <img
-          src={product.gallery[0]}
-          alt={`${product.name} — imagem 01`}
-          loading="lazy"
-          className="w-full h-auto grayscale"
-        />
-        <figcaption className="label-eyebrow text-bone-dim mt-4">
-          01 · {product.name}
-        </figcaption>
-      </div>
-    </figure>
+          {/* FOTO 01 */}
+          <figure className="px-6 lg:px-16">
+            <div className="max-w-6xl mx-auto">
+              <img
+                src={product.gallery[0]}
+                alt={`${product.name} — imagem 01`}
+                loading="lazy"
+                className="w-full h-auto grayscale"
+              />
+              <figcaption className="label-eyebrow text-bone-dim mt-4">
+                01 · {product.name}
+              </figcaption>
+            </div>
+          </figure>
 
-    {/* FOTO 02 */}
-    <figure className="px-6 lg:px-16">
-      <div className="max-w-4xl mx-auto">
-        <img
-          src={product.gallery[1]}
-          alt={`${product.name} — imagem 02`}
-          loading="lazy"
-          className="w-full h-auto grayscale"
-        />
-        <figcaption className="label-eyebrow text-bone-dim mt-4">
-          02 · {product.name}
-        </figcaption>
-      </div>
-    </figure>
+          {/* FOTO 02 */}
+          <figure className="px-6 lg:px-16">
+            <div className="max-w-4xl mx-auto">
+              <img
+                src={product.gallery[1]}
+                alt={`${product.name} — imagem 02`}
+                loading="lazy"
+                className="w-full h-auto grayscale"
+              />
+              <figcaption className="label-eyebrow text-bone-dim mt-4">
+                02 · {product.name}
+              </figcaption>
+            </div>
+          </figure>
 
-    {/* FOTO 03 */}
-    <figure className="px-6 lg:px-16">
-      <div className="max-w-5xl mx-auto">
-        <img
-          src={product.gallery[2]}
-          alt={`${product.name} — imagem 03`}
-          loading="lazy"
-          className="w-full h-auto grayscale"
-        />
-        <figcaption className="label-eyebrow text-bone-dim mt-4">
-          03 · {product.name}
-        </figcaption>
-      </div>
-    </figure>
+          {/* FOTO 03 */}
+          <figure className="px-6 lg:px-16">
+            <div className="max-w-5xl mx-auto">
+              <img
+                src={product.gallery[2]}
+                alt={`${product.name} — imagem 03`}
+                loading="lazy"
+                className="w-full h-auto grayscale"
+              />
+              <figcaption className="label-eyebrow text-bone-dim mt-4">
+                03 · {product.name}
+              </figcaption>
+            </div>
+          </figure>
 
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* SEÇÃO 04 — A PEÇA */}
       <section className="border-t border-ash/40 px-6 lg:px-16 py-32 lg:py-48">
@@ -245,9 +245,12 @@ export default function ProductDetail() {
       </section>
 
       <footer className="border-t border-ash/40 px-6 lg:px-16 py-12 text-center">
-        <Link to="/" className="label-eyebrow editorial-link">
+        <a
+          href="/#do-chao"
+          className="label-eyebrow editorial-link"
+        >
           ← Retornar ao Início
-        </Link>
+        </a>
       </footer>
     </div>
   );
