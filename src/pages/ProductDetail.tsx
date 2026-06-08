@@ -245,7 +245,10 @@ export default function ProductDetail() {
       </section>
 
       <footer className="border-t border-ash/40 px-6 lg:px-16 py-12 text-center">
-        <Link to="/#do-chao" className="label-eyebrow editorial-link">
+        <Link 
+        to="/#do-chao" 
+        className="label-eyebrow editorial-link"
+        >
           ← Retornar ao Início
         </Link>
       </footer>

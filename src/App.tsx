@@ -10,16 +10,22 @@ import JournalArticle from "./pages/JournalArticle";
 const queryClient = new QueryClient();
 
 const ScrollToHash = () => {
-  const { hash } = useLocation();
+  const { hash, pathname } = useLocation();
 
   useEffect(() => {
-    if (hash) {
+    if (!hash) return;
+
+    setTimeout(() => {
       const element = document.querySelector(hash);
+
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
-    }
-  }, [hash]);
+    }, 150);
+  }, [hash, pathname]);
 
   return null;
 };
