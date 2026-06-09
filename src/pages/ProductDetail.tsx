@@ -12,7 +12,6 @@ export default function ProductDetail() {
   useEffect(() => {
     if (product) {
       document.title = `${product.name} — Arte de Chão`;
-      window.scrollTo({ top: 0, behavior: "auto" });
     }
   }, [product]);
 
