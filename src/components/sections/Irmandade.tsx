@@ -18,20 +18,13 @@ export default function Irmandade() {
     .insert([{ email }]);
 
   if (error) {
-    console.error(error);
+    console.error("Supabase error:", error.code, error.message);
 
-    if (
-      error.message.includes("duplicate") ||
-      error.message.includes("unique")
-    ) {
-      return toast.error(
-        "Este e-mail já faz parte da Irmandade."
-      );
+    if (error.code === "23505") {
+      return toast.error("Este e-mail já faz parte da Irmandade.");
     }
 
-    return toast.error(
-      "Não foi possível concluir o cadastro."
-    );
+    return toast.error("Não foi possível concluir agora. Tente novamente.");
   }
 
   setDone(true);
