@@ -42,6 +42,7 @@
     --bone-dim: 38 12% 70%;
     --ink: 0 0% 4%;
     --ash: 38 6% 28%;
+    --terra: 20 55% 36%;
 
     --shadow-vignette: radial-gradient(ellipse at center, transparent 0%, hsl(var(--ink) / 0.85) 100%);
     --gradient-fade-down: linear-gradient(180deg, transparent 0%, hsl(var(--ink)) 100%);
@@ -121,6 +122,9 @@
   .delay-200 { animation-delay: 0.25s; }
   .delay-300 { animation-delay: 0.45s; }
   .delay-500 { animation-delay: 0.7s; }
+  .text-terra { color: hsl(var(--terra)); }           
+  .bg-terra { background: hsl(var(--terra)); }        
+  .border-terra { border-color: hsl(var(--terra)); }   
 }
 
 @keyframes rise {

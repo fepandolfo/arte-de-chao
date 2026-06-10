@@ -34,10 +34,10 @@ export default function ProductDetail() {
 
         <div className="relative h-full flex flex-col justify-between px-6 lg:px-16 py-12 lg:py-16">
           <div className="flex items-start justify-between gap-6">
-            <Link to="/#do-chao" className="label-eyebrow editorial-link text-bone">
+            <Link to="/#do-chao" className="label-eyebrow editorial-link text-terra text-[0.7rem]">
               ← Voltar
             </Link>
-            <p className="label-eyebrow text-bone">Peça N° {product.number}</p>
+            <p className="label-eyebrow text-terra text-[0.7rem]">Peça N° {product.number}</p>
           </div>
 
           <div className="max-w-5xl">
@@ -47,23 +47,23 @@ export default function ProductDetail() {
             <p className="font-serif-editorial italic text-bone-dim text-2xl md:text-3xl lg:text-4xl mt-6 leading-snug">
               "{product.tagline}"
             </p>
-            <p className="label-eyebrow text-bone-dim mt-8">
+            <p className="label-eyebrow text-terra mt-8 text-[0.7rem]">
               Coleção {product.number === "01" || product.collection === "DO CHÃO" ? "01" : ""} — {product.collection.charAt(0) + product.collection.slice(1).toLowerCase()}
             </p>
           </div>
 
           <div className="flex items-end justify-between">
-            <p className="label-eyebrow text-bone-dim">Role para ler o capítulo</p>
-            <span className="label-eyebrow text-bone-dim">↓</span>
+            <p className="label-eyebrow text-bone-dim text-[0.7rem]">Role para ler o capítulo</p>
+            <span className="label-eyebrow text-bone-dim text-[0.7rem]">↓</span>
           </div>
         </div>
       </section>
 
       {/* SEÇÃO 02 — O CAPÍTULO */}
-      <section className="border-t border-ash/40 px-6 lg:px-16 py-32 lg:py-48">
+      <section className="border-t border-terra/30 px-6 lg:px-16 py-32 lg:py-48">
         <div className="max-w-4xl mx-auto grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-3">
-            <p className="label-eyebrow">O Capítulo</p>
+            <p className="label-eyebrow text-terra text-[0.7rem]">O Capítulo</p>
             <p className="font-mono-label text-bone-dim text-xs mt-3">N° {product.number}</p>
           </div>
           <div className="lg:col-span-9">
@@ -79,7 +79,7 @@ export default function ProductDetail() {
       <section className="border-t border-ash/40">
         <div className="px-6 lg:px-16 pt-24 lg:pt-32 pb-16">
           <div className="max-w-7xl mx-auto">
-            <p className="label-eyebrow">Reportagem Visual</p>
+            <p className="label-eyebrow text-terra text-[0.7rem]">Reportagem Visual</p>
           </div>
         </div>
 
@@ -94,7 +94,7 @@ export default function ProductDetail() {
                 loading="lazy"
                 className="w-full h-auto grayscale"
               />
-              <figcaption className="label-eyebrow text-bone-dim mt-4">
+              <figcaption className="label-eyebrow text-terra mt-4 text-[0.7rem]">
                 01 · {product.name}
               </figcaption>
             </div>
@@ -109,7 +109,7 @@ export default function ProductDetail() {
                 loading="lazy"
                 className="w-full h-auto grayscale"
               />
-              <figcaption className="label-eyebrow text-bone-dim mt-4">
+              <figcaption className="label-eyebrow text-terra mt-4 text-[0.7rem]">
                 02 · {product.name}
               </figcaption>
             </div>
@@ -124,7 +124,7 @@ export default function ProductDetail() {
                 loading="lazy"
                 className="w-full h-auto grayscale"
               />
-              <figcaption className="label-eyebrow text-bone-dim mt-4">
+              <figcaption className="label-eyebrow text-terra mt-4 text-[0.7rem]">
                 03 · {product.name}
               </figcaption>
             </div>
@@ -145,7 +145,7 @@ export default function ProductDetail() {
           </div>
 
           <div>
-            <p className="label-eyebrow">A Peça</p>
+            <p className="label-eyebrow text-terra text-[0.7rem]">A Peça</p>
             <h2 className="font-serif-editorial text-bone text-5xl md:text-6xl mt-4 leading-[0.95] tracking-[-0.02em]">
               {product.name}
             </h2>
@@ -180,12 +180,12 @@ export default function ProductDetail() {
               href={product.reservaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-12 inline-flex w-full items-center justify-between gap-4 py-5 px-6 bg-bone text-ink label-eyebrow hover:bg-bone-dim transition-colors duration-500"
+              className="mt-12 inline-flex w-full items-center justify-between gap-4 py-5 px-6 bg-bone text-ink label-eyebrow hover:bg-bone-dim transition-colors duration-500 text-[0.7rem]"
             >
               <span>Continuar para Compra</span>
               <span>→</span>
             </a>
-            <p className="label-eyebrow text-bone-dim mt-4">
+            <p className="label-eyebrow text-terra mt-4 text-[0.7rem]">
               Venda realizada na Reserva.ink
             </p>
           </div>
@@ -195,8 +195,8 @@ export default function ProductDetail() {
       {/* SEÇÃO 05 — LIÇÃO */}
       <section className="border-t border-ash/40 px-6 lg:px-16 py-40 lg:py-64">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="label-eyebrow mb-12">A Lição</p>
-          <p className="font-serif-editorial italic text-bone text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-[-0.01em]">
+          <p className="label-eyebrow text-terra mb-12 text-[0.7rem]">A Lição</p>
+          <p className="font-serif-editorial italic text- text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-[-0.01em]">
             "{product.finalQuote}"
           </p>
         </div>
@@ -207,12 +207,12 @@ export default function ProductDetail() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16">
             <div>
-              <p className="label-eyebrow mb-4">Continuar a Jornada</p>
+              <p className="label-eyebrow text-terra mb-4 text-[0.7rem]">Continuar a Jornada</p>
               <h3 className="font-serif-editorial text-bone text-4xl md:text-5xl leading-[0.95]">
                 Outras peças da coleção
               </h3>
             </div>
-            <Link to="/#do-chao" className="label-eyebrow editorial-link hidden md:inline">
+            <Link to="/#do-chao" className="label-eyebrow editorial-link hidden md:inline text-[0.7rem]">
               Ver coleção →
             </Link>
           </div>
@@ -244,9 +244,9 @@ export default function ProductDetail() {
       </section>
 
       <footer className="border-t border-ash/40 px-6 lg:px-16 py-12 text-center">
-        <Link 
-        to="/#do-chao" 
-        className="label-eyebrow editorial-link"
+        <Link
+          to="/#do-chao"
+          className="label-eyebrow editorial-link text-terra text-[0.7rem]"
         >
           ← Retornar ao Início
         </Link>

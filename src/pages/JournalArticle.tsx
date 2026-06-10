@@ -33,7 +33,7 @@ export default function JournalArticle() {
 
         <div className="relative h-full flex items-end">
           <div className="max-w-3xl px-6 lg:px-16 pb-24 lg:pb-28">
-            <p className="label-eyebrow text-bone-dim mb-6">
+            <p className="label-eyebrow text-terra mb-6 text-[0.7rem]">
               {article.date} — {article.readTime}
             </p>
 
@@ -53,7 +53,7 @@ export default function JournalArticle() {
 
         <Link
           to="/#jornal"
-          className="label-eyebrow editorial-link"
+          className="label-eyebrow editorial-link text-terra text-[0.7rem]"
         >
           ← Voltar ao Jornal
         </Link>
@@ -80,7 +80,7 @@ export default function JournalArticle() {
           </div>
 
           {/* CITAÇÃO CENTRAL */}
-          <div className="border-y border-ash/40 py-24 my40">
+          <div className="border-y border-terra/30 py-24 my-40">
             <p className="font-serif-editorial italic text-center text-4xl md:text-6xl leading-[1.2]">
               "{article.middleQuote}"
             </p>
@@ -111,8 +111,8 @@ export default function JournalArticle() {
             ))}
           </div>
           {/* QUOTE FINAL */}
-          <div className="border-t border-ash/40 mt-32 pt-20">
-            <p className="font-serif-editorial italic text-4xl md:text-5xl text-center leading-[1.2]">
+          <div className="border-t border-terra/30 mt-32 pt-20">
+            <p className="font-serif-editorial italic text-4xl md:text-5xl text-center leading-[1.2] text-terra">
               "{article.quote}"
             </p>
           </div>

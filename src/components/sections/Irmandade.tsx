@@ -7,34 +7,34 @@ export default function Irmandade() {
   const [done, setDone] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
-  e.preventDefault()
+    e.preventDefault()
 
-  if (!email.includes("@")) {
-    return toast.error("E-mail inválido.");
-  }
-
-  const { error } = await supabase
-    .from("newsletter_subscribers")
-    .insert([{ email }]);
-
-  if (error) {
-    console.error("Supabase error:", error.code, error.message);
-
-    if (error.code === "23505") {
-      return toast.error("Este e-mail já faz parte da Irmandade.");
+    if (!email.includes("@")) {
+      return toast.error("E-mail inválido.");
     }
 
-    return toast.error("Não foi possível concluir agora. Tente novamente.");
-  }
+    const { error } = await supabase
+      .from("newsletter_subscribers")
+      .insert([{ email }]);
 
-  setDone(true);
-  setEmail("");
+    if (error) {
+      console.error("Supabase error:", error.code, error.message);
 
-  toast.success("Bem-vindo à Irmandade.");
-};
+      if (error.code === "23505") {
+        return toast.error("Este e-mail já faz parte da Irmandade.");
+      }
+
+      return toast.error("Não foi possível concluir agora. Tente novamente.");
+    }
+
+    setDone(true);
+    setEmail("");
+
+    toast.success("Bem-vindo à Irmandade.");
+  };
 
   return (
-    <section id="irmandade" className="relative py-32 lg:py-56 px-6 lg:px-16 border-t border-ash/40 overflow-hidden">
+    <section id="irmandade" className="relative py-32 lg:py-56 px-6 lg:px-16 border-t border-ash/40 overflow-hidden bg-[hsl(38,22%,92%)]">
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
         <div className="absolute inset-0" style={{
           background: "radial-gradient(circle at 50% 50%, hsl(var(--bone)) 0%, transparent 60%)"
@@ -42,13 +42,13 @@ export default function Irmandade() {
       </div>
 
       <div className="relative max-w-3xl mx-auto text-center space-y-10">
-        <p className="label-eyebrow">05 — Faça parte</p>
+        <p className="label-eyebrow text-[hsl(0,0%,4%)] text-[0.7rem]">05 — Faça parte</p>
 
-        <h2 className="font-serif-editorial text-6xl md:text-8xl lg:text-9xl text-bone leading-[0.9]">
+        <h2 className="font-serif-editorial text-6xl md:text-8xl lg:text-9xl text-[hsl(0,0%,4%)] leading-[0.9]">
           Irman<span className="italic">dade.</span>
         </h2>
 
-        <p className="font-serif-editorial italic text-xl md:text-2xl text-bone-dim max-w-xl mx-auto leading-relaxed">
+        <p className="font-serif-editorial italic text-xl md:text-2xl text-[hsl(0,0%,20%)] max-w-xl mx-auto leading-relaxed">
           Nem todo mundo faz parte da Irmandade.
           <br />
           Receba editoriais, bastidores e lançamentos antes de todos os outros.
@@ -65,7 +65,7 @@ export default function Irmandade() {
         ) : (
           <form
             onSubmit={submit}
-            className="flex flex-col sm:flex-row items-stretch gap-px max-w-lg mx-auto border-b border-ash pb-px"
+            className="flex flex-col sm:flex-row items-stretch gap-px max-w-lg mx-auto border-b border-[hsl(0,0%,20%)] pb-px"
           >
             <input
               type="email"
@@ -73,11 +73,11 @@ export default function Irmandade() {
               placeholder="seu e-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-transparent text-bone placeholder:text-bone-dim/50 px-4 py-4 outline-none font-serif-editorial text-lg text-center sm:text-left"
+              className="flex-1 bg-transparent text-[hsl(0,0%,4%)] placeholder:text-[hsl(0,0%,40%)] px-4 py-4 outline-none font-serif-editorial text-lg text-center sm:text-left"
             />
             <button
               type="submit"
-              className="label-eyebrow text-bone hover:text-bone-dim px-6 py-4 transition-colors duration-500"
+              className="label-eyebrow text-[hsl(0,0%,4%)] hover:text-[hsl(0,0%,30%)] px-6 py-4 transition-colors duration-500"
             >
               Entrar →
             </button>

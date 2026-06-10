@@ -11,11 +11,11 @@ export default function EmBreve() {
   return (
     <section
       id="em-breve"
-      className="relative py-32 lg:py-48 px-6 lg:px-16 border-t border-ash/40"
+      className="relative py-32 lg:py-48 px-6 lg:px-16 border-t border-ash/40 bg-[hsl(20,55%,36%,0.07)]"
     >
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 lg:mb-24 space-y-4">
-          <p className="label-eyebrow">03 — Próximos Capítulos</p>
+          <p className="label-eyebrow text-terra text-[0.7rem]">03 — Próximos Capítulos</p>
 
           <h2 className="font-serif-editorial text-4xl md:text-6xl text-bone-dim italic">
             Em Breve.

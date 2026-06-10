@@ -16,16 +16,16 @@ export default function Hero() {
 
       <div className="relative z-10 min-h-screen flex flex-col justify-between px-6 lg:px-20 py-24 lg:py-20">
         <div className="flex justify-between items-start animate-fade">
-          <p className="label-eyebrow">MMXXVI · São Paulo · Brasil</p>
-          <p className="label-eyebrow hidden md:block">Coleção 01 — Do Chão</p>
+          <p className="label-eyebrow text-[0.7rem]">MMXXVI · São Paulo · Brasil</p>
+          <p className="label-eyebrow hidden md:block text-[0.7rem]">Coleção 01 — Do Chão</p>
         </div>
 
         <div className="max-5xl">
-          <p className="label-eyebrow mb-4 animate-rise">Arte de Chão</p>
+          <p className="label-eyebrow mb-4 animate-rise text-[0.7rem]">Arte de Chão</p>
           <h1 className="font-serif-editorial text-6xl sm:text-6xl md:text-6xl lg:text-[9.5rem] leading-[0.95] text-bone animate-rise delay-100">
             Antes da<br />
             <span className="italic font-light">faixa,</span><br />
-            existe o <span className="italic">chão.</span>
+            existe o <span className="italic font-medium text-terra">chão.</span>
           </h1>
         </div>
 
@@ -36,7 +36,7 @@ export default function Hero() {
           </p>
           <a
             href="#manifesto"
-            className="label-eyebrow editorial-link self-start md:self-end"
+            className="label-eyebrow editorial-link self-start md:self-end text-[0.7rem]"
           >
             Descer ↓
           </a>

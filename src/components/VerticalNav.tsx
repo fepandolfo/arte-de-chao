@@ -51,7 +51,7 @@ export default function VerticalNav() {
         </ul>
 
         <span
-          className="label-eyebrow text-bone-dim"
+          className="label-eyebrow text-[bone-dim]"
           style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
         >
           MMXXVI

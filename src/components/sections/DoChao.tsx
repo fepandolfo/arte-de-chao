@@ -11,7 +11,7 @@ export default function DoChao() {
     <section className="relative border-t border-ash/40">
       {/* Editorial header */}
       <header id="do-chao" className="scroll-mt-4 px-6 lg:px-16 pt-32 lg:pt-48 pb-24 lg:pb-40 max-w-6xl mx-auto">
-        <p className="label-eyebrow mb-10">Coleção 01 — Capítulo Inaugural</p>
+        <p className="label-eyebrow mb-10 text-terra text-[0.7rem]">Coleção 01 — Capítulo Inaugural</p>
         <h2 className="font-serif-editorial text-bone leading-[0.9] text-[18vw] md:text-[14vw] lg:text-[11rem] tracking-[-0.04em]">
           Do Chão.
         </h2>
@@ -71,7 +71,7 @@ export default function DoChao() {
                       className="w-full h-full object-cover grayscale transition-transform duration-[2000ms] ease-out group-hover:scale-[1.04]"
                     />
                   </div>
-                  <span className="absolute top-6 left-6 label-eyebrow text-bone">
+                  <span className="absolute top-8 left-6 label-eyebrow text-terra text-[0.7rem]">
                     Peça N° {number}
                   </span>
                 </Link>
@@ -85,7 +85,7 @@ export default function DoChao() {
                       : "lg:col-span-4 lg:col-start-1",
                   ].join(" ")}
                 >
-                  <p className="label-eyebrow">Capítulo {number}</p>
+                  <p className="label-eyebrow text-terra text-[0.7rem]">Capítulo {number}</p>
                   <h3 className="font-serif-editorial text-bone text-6xl md:text-7xl lg:text-7xl leading-[0.95] tracking-[-0.02em] uppercase">
                     {p.name}
                   </h3>
@@ -115,7 +115,7 @@ export default function DoChao() {
 
       {/* Closing editorial mark */}
       <div className="px-6 lg:px-16 py-32 lg:py-48 text-center max-w-3xl mx-auto">
-        <p className="label-eyebrow mb-8">Fim do Capítulo 01</p>
+        <p className="label-eyebrow mb-8 text-terra text-[0.7rem]">Fim do Capítulo 01</p>
         <p className="font-serif-editorial italic text-bone text-3xl md:text-4xl leading-[1.2]">
           O chão ensina. O praticante escuta. O resto é repetição.
         </p>
